@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'post.css' %}" />
+    <title>Post</title>
+  </head>
+  <body>
+    <div class="post-block">
+      <img class="post-image" src="{{post.image.url}}" />
+      <div class="information">
+        <h1 class="post-title">{{post.title}}</h1>
+        <h1 class="post-email">by {{post.user.email}}</h1>
+      </div>
+      <p class="post-description">{{post.description}}</p>
+    </div>
+    <div class="post-comments">
+      <h1 class="comments-title">Comments</h1>
+      {% for i in comments %}
+      <div class="comment-block">
+        <p class="comment-title">{{i.description}}</p>
+        <h1 class="comment-email">{{i.user.email}}</h1>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

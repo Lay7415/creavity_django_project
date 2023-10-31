@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'posts.css' %}" />
+  </head>
+  <body>
+    <h1 class="posts-title">Posts</h1>
+    <div class="posts-content">
+      {% for i in posts %}
+      <a href="{% url "post" i.id %}" class="post-block">
+        <img class="post-image" src="{{i.image.url}}" />
+        <h1 class="post-title">{{i.title}}</h1>
+        <h1 class="post-email">by {{i.user.email}}</h1>
+      </a>
+      {% endfor %}
+    </div>
+  </body>
+</html>
